@@ -11,7 +11,7 @@ driver = webdriver.Chrome()
 driver.get("https://mavin.io/")
 
 
-def pokemon(fullCardDesc):
+def pokemonValueMavin(fullCardDesc):
     search = driver.find_element_by_name("q")
     search.send_keys(fullCardDesc)
     search.send_keys(Keys.RETURN)

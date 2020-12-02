@@ -1,4 +1,4 @@
-from pokemon import *
+from getcardvalue import *
 import pygsheets
 gc = pygsheets.authorize()
 
@@ -31,14 +31,14 @@ counter = 2
 values = wk1.get_col(6)
 values.pop(0)
 for i in range(0, len(fullCardDesc)):
-    if values[i] == "":
-        cardValue = pokemon(fullCardDesc[i])
-        time.sleep(3)
+    cardValue = pokemonValueMavin(fullCardDesc[i])
+    time.sleep(3)
+    if values[i] != cardValue:
         wk1.update_value("F" + str(counter), cardValue)
     counter += 1
 exitBrowser()
 
-updatePageNum = True
+updatePageNum = False
 if updatePageNum:
     cardNumbers = wk1.get_col(1)
     cardNumbers.pop(0)
